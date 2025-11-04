@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trường Đại học Đại Nam</title>
+  <meta name="description" content="Trang giới thiệu Trường Đại học Đại Nam - đào tạo, tuyển sinh, tin tức, liên hệ">
+  <link rel="stylesheet" href="style1.css">
+  <style>
+        :root{
+      --primary:#0b6e4f;
+      --accent:#f2b705;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --radius:12px;
+      --maxw:1100px;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 8px 24px rgba(13, 23, 33, 0.08);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{
+      box-sizing:border-box
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      line-height:1.5
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:28px
+    }
+
+    /* Header */
+    header{
+      /*background:linear-gradient(180deg, rgba(11,110,79,0.96), rgba(11,110,79,0.9));*/
+      background: tomato;
+      color:#fff;
+      padding:18px 0;
+      position:sticky;
+      top:0;
+      z-index:50}
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700
+    }
+    .brand .logo{
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--primary);
+      font-weight:800
+    }
+    nav ul{
+      display:flex;
+      gap:18px;
+      margin:0;
+      padding:0;
+      list-style:none
+    }
+    nav a{color:#e6f6ef;
+      text-decoration:none;
+      font-weight:600
+    }
+    nav ul li a:hover{
+      background-color: #993300;
+      padding: 14px 16px;
+    }
+    .btn{
+      background:var(--accent);
+      color:#0f172a;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      align-items:center;
+      gap:24px;
+      padding:56px 0
+    }
+    .hero-inner{
+      display:flex;
+      flex-direction:column;
+      gap:18px
+    }
+    .hero h1{
+      font-size:28px;
+      margin:0;
+      color:#fff
+    }
+    .hero p{
+      margin:0;
+      color:rgba(255,255,255,0.9)
+    }
+    .hero-cta{
+      display:flex;
+      gap:12px
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      padding:18px;
+      border-radius:14px;
+      box-shadow:var(--shadow)
+    }
+
+    /* Sections */
+    section{
+      padding:44px 0
+    }
+    h2{font-size:20px;
+      margin:0 0 12px 0
+    }
+    .grid{
+      display:grid;
+      gap:18px
+    }
+
+    /* Programs */
+    .programs{
+      grid-template-columns:repeat(3,1fr)
+    }
+    .program{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:var(--shadow)
+    }
+    .program h3{
+      margin:0 0 8px 0
+    }
+    .program p{
+      color:var(--muted);
+      margin:0
+    }
+
+    /* News */
+    .news{
+      grid-template-columns:repeat(2,1fr)
+    }
+    .news-item{
+      display:flex;
+      gap:12px;
+      background:var(--card);
+      padding:12px;
+      border-radius:10px;
+      align-items:flex-start
+    }
+    .thumb{
+      width:110px;
+      height:76px;
+      border-radius:8px;
+      flex-shrink:0;
+      background-size:cover;
+      background-position:center
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:24px
+    }
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:var(--shadow)
+    }
+    label{
+      display:block;
+      font-weight:600;
+      margin-bottom:6px
+    }
+    input,textarea,select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #e6eef0;
+      margin-bottom:12px
+    }
+    textarea{
+      min-height:120px
+    }
+
+    footer{
+      padding:28px 0;
+      color:var(--muted)
+    }
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap
+    }
+
+    /* Responsive */
+    @media(min-width:900px){
+      .hero{
+        grid-template-columns:1fr 420px
+      }
+      .hero h1{
+        font-size:36px
+      }
+      .programs{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media(max-width:899px){
+      nav ul{
+        display:none
+      }
+      .hero{
+        padding:40px 0
+      }
+      .programs,.news{
+        grid-template-columns:1fr
+      }
+      .contact{
+        grid-template-columns:1fr
+      }
+    }
+
+    /* Utility */
+    .muted{color:var(--muted)}
+    .chip{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      font-weight:600
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">DN</div>
+        <div>
+          <div style="font-size:30px;opacity:0.9">Trường Đại học</div>
+          <div style="font-size:30px;opacity:0.9">Đại Nam</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#programs"> Ngành Học</a></li>
+          <li><a href="#admissions">Tuyển sinh</a></li>
+          <li><a href="#news">Tin tức</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="background-image:linear-gradient(90deg, rgba(7,57,40,0.8), rgba(11,110,79,0.75)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=');background-size:cover;background-position:center;color:#fff;">
+      <div class="container hero-inner">
+        <div class="hero-card">
+          <div class="chip">Đào tạo chính quy & quốc tế</div>
+          <h1>Chào mừng bạn đến với Trường Đại học Đại Nam</h1>
+          <p>Phát triển năng lực, nuôi dưỡng sáng tạo và kết nối cộng đồng. Chương trình giảng dạy thực tiễn, cơ sở vật chất hiện đại, đội ngũ giảng viên giàu kinh nghiệm.</p>
+          <div class="hero-cta">
+            <a href="#contact" style="background:transparent;color:#fff;padding:10px 12px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.16)"></a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="hero-card">
+          </div>
+      </div>
+    </section>
+
+
+<!-- Phần 1  ( Giới Thiệu ) -->
+
+    <section id="about" class="container">
+      <h2 style="color: #660000">Giới thiệu</h2>
+      <div class="card" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <p>Trường Đại học Đại Nam là cơ sở giáo dục đại học với sứ mệnh đào tạo nguồn nhân lực chất lượng cao, nghiên cứu ứng dụng và phục vụ cộng đồng. Chúng tôi tập trung vào hợp tác doanh nghiệp và phát triển kỹ năng thực hành cho sinh viên.</p>
+          <ul style="margin:12px 0 0;padding-left:20px;color:var(--muted)">
+            <li>Chương trình đào tạo đa ngành, cấp bằng chính quy</li>
+            <li>Mạng lưới đối tác doanh nghiệp rộng khắp</li>
+            <li>Hỗ trợ sinh viên thực tập và khởi nghiệp</li>
+          </ul>
+        </div>
+        <div style="width:320px;min-width:220px">
+          <div style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=');height:200px;border-radius:12px;background-size:cover;background-position:center"></div>
+        </div>
+      </div>
+    </section>
+
+<!-- Phần 2  ( Ngành đào tạo ) -->
+
+
+
+    <section id="programs" class="container">
+      <h2 style="color: #660000">Ngành đào tạo tiêu biểu</h2>
+      <div class="grid programs">
+        <article class="program">
+          <h3 style="color: #660000">Công nghệ thông tin</h3>
+          <p>Ngành chú trọng lập trình, hệ thống mạng, trí tuệ nhân tạo và an toàn thông tin. Hợp tác với doanh nghiệp trong và ngoài nước.</p>
+        </article>
+        <article class="program">
+          <h3 style="color: #660000">Quản trị kinh doanh</h3>
+          <p>Chương trình thực hành cao, đào tạo kỹ năng quản lý, marketing và khởi nghiệp.</p>
+        </article>
+        <article class="program">
+          <h3 style="color: #660000">Khoa học dữ liệu</h3>
+          <p>Đào tạo phân tích dữ liệu, khai phá mô hình, ứng dụng trong tài chính, y tế và sản xuất.</p>
+        </article>
+      </div>
+    </section>
+
+
+<!-- Phần 3  ( Tuyển Sinh ) -->
+
+
+    <section id="admissions" class="container">
+      <h2 style="color: #660000">Tuyển sinh</h2>
+      <div class="card" style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px;color: #660000;">
+          <p><strong>Hướng dẫn nộp hồ sơ: <br></strong> Bước 1: Chuẩn bị hồ sơ <br>Bước 2: Nộp trực tuyến hoặc trực tiếp<br> Bước 3: Theo dõi kết quả xét tuyển</p>
+          <p class="muted">Yêu cầu học lực, hồ sơ chi tiết và lịch tuyển sinh có thể thay đổi theo từng năm. Vui lòng liên hệ để được tư vấn cụ thể.</p>
+        </div>
+        <div style="width:320px">
+          <div class="card">
+            <h3 style="color: #660000">Đăng ký nhanh</h3>
+            <form onsubmit="alert();return false">
+              <label>Họ và tên</label>
+              <input placeholder="" required>
+              <label>Số điện thoại</label>
+              <input placeholder="" required>
+              <label>Ngành quan tâm</label>
+              <select>
+                <option>Công nghệ thông tin</option>
+                <option>Quản trị kinh doanh</option>
+                <option>Khoa học dữ liệu</option>
+              </select>
+              <button class="btn" style="width:100%;margin-top:6px">Gửi đăng ký</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- Phần 4  ( Tin Tức ) -->
+
+
+    <section id="news" class="container">
+      <h2 style="color: #660000">Tin tức & Sự kiện</h2>
+      <div class="grid news">
+        <article class="news-item">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=')"></div>
+          <div>
+            <h3 style="margin:0">Hội thảo AI và ứng dụng</h3>
+            <p class="muted" style="margin:6px 0 0">Ngày 20/08/2026 — Chia sẻ về xu hướng trí tuệ nhân tạo và cơ hội nghề nghiệp.</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=')"></div>
+          <div>
+            <h3 style="margin:0">Lễ tốt nghiệp niên khóa 2025</h3>
+            <p class="muted" style="margin:6px 0 0">Ảnh và thông tin diễn ra tại hội trường chính, 28/08/2025.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+<!-- Phần 5  ( Liên Hệ ) -->
+
+
+
+    <section id="contact" class="container">
+      <h2 style="color: #660000">Liên hệ</h2>
+      <div class="contact">
+        <div>
+          <div class="card">
+            <p><strong>Trường Đại học Đại Nam</strong><br>
+            Địa chỉ: Xóm 1, Phố Xốm, Thành Phố Hà Nội<br>
+            Điện thoại: 0268999999<br>
+            Email: Truongdaihocdainam@.edu.com</p>
+            <div style="margin-top:12px">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Gửi câu hỏi</h3>
+            <form onsubmit="alert('Mẫu demo — tính năng server chưa có');return false">
+              <label>Họ tên</label>
+              <input required>
+              <label>Email</label>
+              <input required>
+              <label>Nội dung</label>
+              <textarea required></textarea>
+              <button class="btn" style="width:100%">Gửi</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Phần 6 chân trang (Foooter) -->
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>Trường Đại học Đại Nam</strong>
+          <div class="muted" style="margin-top:8px">Bản quyền © 2026 Trường Đại học Đại Nam. Bảo lưu mọi quyền.</div>
+          <div class="muted" style="margin-top:8px;color: #660033;">Thiết kế Website : TeddyK Hoangg Anhk ( Hoàng Tuấn Anh CNTN K19-02 )</div>
+          <div class="muted">Điện thoại: 0268999999 · Email: Truongdaihocdainam@.edu.com</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>
